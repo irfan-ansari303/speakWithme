@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const signup=async(req,res)=>{
+ try{
     const {name, email,password}=req.body;
 
     const exists=await User.findOne({email});
@@ -12,6 +13,10 @@ export const signup=async(req,res)=>{
 
     await User.create({name,email, password:hashed});
     res.json({msg:"Signup successfull"});
+ }catch(err){
+    console.log(err);
+    res.status(500).json({msg:"Sever error"});
+ }
 };
 
 export const login = async (req, res) => {

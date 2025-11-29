@@ -12,7 +12,7 @@ export default function SignUp() {
     try {
       await API.post("/signup", data);  // Add forward slash
       alert("Signup Successful!");
-      navigate("/Dashboard");
+      navigate("/Login");
     } catch (err) {
       alert(err.response?.data?.msg || "Signup failed");
     }
