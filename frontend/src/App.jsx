@@ -8,12 +8,15 @@ import Login from "./Pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from './Pages/Dashboard'
 import SignUp from './Pages/SignUp'
+import Navbar from './components/Navbar'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
  <>
+   <Navbar/>
    <Routes>
+    
     <Route path='/' element={<HomePage/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/signup" element={<SignUp/>}/>
